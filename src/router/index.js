@@ -8,13 +8,13 @@ export default new Router({
     mode: 'history',
     routes: [
         //  { path: '*', component: NotFoundComponent },//错误页
+        // {
+        //     path: '/',
+        //     name: 'index',
+        //     component: HelloWorld
+        // },
         {
-            path: '/',
-            name: 'index',
-            component: HelloWorld
-        },
-        {
-            path: '/new_home_detail', //
+            path: '', ///new_home_detail
             name: "new_home_detail",
             component: NewHomeDetail //resolve => require(['@/components/new_home_detail'], resolve),
         },

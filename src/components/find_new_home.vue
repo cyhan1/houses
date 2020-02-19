@@ -1,6 +1,6 @@
 <template>
     <div>
-        找房子
+        找新房子
     </div>
 </template>
 <script>

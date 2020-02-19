@@ -77,3 +77,30 @@
 .text-left {
     text-align: left;
 }
+
+
+/*单行显示文字*/
+
+.textview-overflow {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+
+/*多行显示文字*/
+
+.textview-overflow.two {
+    -webkit-line-clamp: 2;
+}
+
+.textview-overflow.three {
+    -webkit-line-clamp: 3;
+}
+
+.textview-overflow.four {
+    -webkit-line-clamp: 4;
+}

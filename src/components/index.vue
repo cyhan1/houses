@@ -1,5 +1,7 @@
 <template>
+    <!--我是主页-->
  <el-container>
+
     <el-header  height="4.33rem">
         <h-header></h-header>
       
@@ -71,9 +73,9 @@
     <el-tab-pane label="商业地产" name="fourth">商业地产</el-tab-pane>
     
   </el-tabs>
-我是主页
-    <router-link to='/new_home_detail'>详情</router-link>
-    <router-link to='/find_new_home'>找房子</router-link>
+
+    <!--<router-link to='/new_home_detail'>详情</router-link>
+    <router-link to='/find_new_home'>找房子</router-link>-->
     </section>
   </el-main>
    
