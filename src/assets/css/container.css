@@ -1,0 +1,16 @@
+.container {
+    padding: 0 0.578rem;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-size: 0.618rem;
+    color: #2C2C3B;
+}
+
+.list {
+    overflow: auto;
+    white-space: nowrap;
+    margin-right: -0.58rem;
+}
+
+.list::-webkit-scrollbar {
+    display: none;
+}

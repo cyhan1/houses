@@ -1,13 +1,11 @@
 <template>
-    <section>
-        
-
+    <section >
     <div class="box list-item">
         <div class="img">
             <img src="@/assets/img//baner.png" alt="">
             <img src="@/assets/img/play@2x.png" alt="" class="play">
         </div>
-        <div>
+        <div @click='go_to_detail(url)'>
             <div class="box box-between title">
                 <p>其仕和悦</p>
                 <p>16000元/m² <span>均</span></p>
@@ -42,13 +40,24 @@
         </section>
 </template>
 <script>
-    export default {}
+    export default {
+        props: {
+            url: {
+                type: String,
+                default: '/new_home_detail',
+
+            }
+        },
+        methods: {
+            go_to_detail(_url) {
+
+                this.$router.push(_url)
+            },
+
+        }
+    }
 </script>
 <style scoped>
-    p {
-        margin: 0;
-    }
-    
     section {
         font-size: 0.438rem;
         font-family: PingFangSC-Medium, PingFang SC;
@@ -66,6 +75,7 @@
     .img img {
         width: 100%;
         height: 100%;
+        border-radius: 0.463rem;
     }
     
     .img .play {

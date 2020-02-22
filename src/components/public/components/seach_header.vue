@@ -1,6 +1,7 @@
 <template>
     <section class="box box-align-center">
-         <el-select v-model="value" placeholder="请选择">
+        <i class="el-icon-arrow-left" @click='back' v-if='isBack'></i>
+        <el-select v-model="value" placeholder="请选择">
     <el-option
       v-for="item in options"
       :key="item.value"
@@ -30,6 +31,14 @@
 </template>
 <script>
     export default {
+        props: {
+
+            isBack: {
+                type: Boolean,
+                default: true,
+                //  required: true
+            }
+        },
         data() {
             return {
                 input2: '',
@@ -50,6 +59,11 @@
                     value: '选项5',
                     label: '北京烤鸭'
                 }],
+            }
+        },
+        methods: {
+            back() {
+                this.$router.go(-1);
             }
         }
 

@@ -2,7 +2,7 @@
      <div class="header">
             <img src="@/assets/img/baner@2x.png"/>
             <div class="box box-align-center box-between">
-               <div>
+               <div @click='back'>
                     <i class="el-icon-arrow-left"></i>
                     
                </div>
@@ -20,7 +20,13 @@
         </div>
 </template>
 <script>
-    export default {}
+    export default {
+        methods: {
+            back() {
+                this.$router.go(-1);
+            }
+        }
+    }
 </script>
 <style scoped>
     .header {

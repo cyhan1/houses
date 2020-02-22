@@ -1,38 +1,20 @@
 <template>
     <!--我是主页-->
  <el-container>
-
+     <!--<div>
+         <router-link to='/new_home_detail'>详情</router-link>
+    <router-link to='/find_new_home'>找房子</router-link>
+     </div>-->
     <el-header  height="4.33rem">
         <h-header></h-header>
-      
     </el-header>
   <el-main>
-    <h-nav></h-nav>
+    <s-header :isBack='false'></s-header>
     <h-banner></h-banner>
     <section class="container">
-        
-    
-    <section class="nav-btn box box-align-center">
-        <div class="box-flex">
-            <img src="@/assets/img/comput@2x.png" alt="">
-            <p>房贷计算器</p>
-        </div>
-        <div class="box-flex">
-            <img src="@/assets/img/agent@2x.png" alt="">
-            <p>找经纪人</p>
-        </div>
-        <div class="box-flex">
-            <img src="@/assets/img/find_house@2x.png" alt="">
-            <p>AI帮我找房</p>
-        </div>
-        <div class="box-flex">
-            <img src="@/assets/img/appraised_value@2x.png" alt="">
-            <p>房屋估价</p>
-        </div>
-        
-    </section>
+    <h-navbtn></h-navbtn>
     <section class="house-class box">
-        <div>
+        <div @click='go_to_new'>
             <img src="@/assets/img/find_new_home@2x.png" alt="">
             <div class="tst text-left">
                 <p>找新房</p>
@@ -40,19 +22,19 @@
             </div>
         </div>
         <div>
-            <div>
+            <div  @click='go_to_second'>
                 <img src="@/assets/img/second-hand_house@2x.png" alt="">
                  <div class="tst text-left">
-                <p>二手房</p>
-                <p>真实房源，权威认证</p>
+                    <p>二手房</p>
+                    <p>真实房源，权威认证</p>
+                </div>
             </div>
-            </div>
-            <div>
+            <div  @click='go_to_rent'>
                 <img src="@/assets/img/renting@2x.png" alt="">
                  <div class="tst text-left">
-                <p>租房</p>
-                <p>真实房源，权威认证</p>
-            </div>
+                    <p>租房</p>
+                    <p>真实房源，权威认证</p>
+                </div>
             </div>
             
         </div>
@@ -73,9 +55,6 @@
     <el-tab-pane label="商业地产" name="fourth">商业地产</el-tab-pane>
     
   </el-tabs>
-
-    <!--<router-link to='/new_home_detail'>详情</router-link>
-    <router-link to='/find_new_home'>找房子</router-link>-->
     </section>
   </el-main>
    
@@ -85,16 +64,18 @@
 
 <script>
     import MyHeader from '@/components/public/components/header';
-    import MyNav from '@/components/public/components/nav';
+    import MySeachHeader from '@/components/public/components/seach_header';
     import MyBan from '@/components/public/components/banner';
+    import MyNavBtn from '@/components/public/components/nav-btn';
     import MyListItem from '@/components/public/components/list_item';
     export default {
         name: 'index',
         components: {
             "h-header": MyHeader,
-            "h-nav": MyNav,
+            "s-header": MySeachHeader,
             "h-banner": MyBan,
-            'h-list': MyListItem
+            'h-list': MyListItem,
+            'h-navbtn': MyNavBtn
         },
         data() {
             return {
@@ -104,6 +85,15 @@
         methods: {
             handleClick(tab, event) {
                 console.log(tab, event);
+            },
+            go_to_new() {
+                this.$router.push('/find_new_home')
+            },
+            go_to_rent() {
+                this.$router.push('/rent_a_house')
+            },
+            go_to_second() {
+                this.$router.push('/second_hand_house')
             }
         }
     }
@@ -136,31 +126,6 @@
     .container {
         padding: 0 0.578rem;
         font-family: PingFangSC-Regular, PingFang SC;
-    }
-    
-    .nav-btn {
-        height: 3.865rem;
-        border-radius: 0.309rem;
-        background: #fff;
-        box-shadow: 0px 8px 12px 8px rgba(12, 102, 255, 0.04);
-        transform: translateY(-0.824rem);
-        position: relative;
-        z-index: 2;
-        padding: 0.747rem 0.58rem;
-        box-sizing: border-box;
-    }
-    
-    .nav-btn img {
-        display: block;
-        width: 1.03rem;
-        height: 1.237rem;
-        margin: 0 auto;
-    }
-    
-    .nav-btn p {
-        color: #2C2C3B;
-        font-size: 0.515rem;
-        margin-top: 0.412rem;
     }
     
     .house-class div,

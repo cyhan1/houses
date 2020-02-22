@@ -72,4 +72,24 @@
     .el-tabs .el-tabs__item.is-active {
         font-size: 0.77rem
     }
+    
+    .user-say .el-rate__icon {
+        font-size: 10px;
+        margin-right: 0px;
+    }
+    
+    .comment-on .el-textarea__inner {
+        background-color: #F2F2F5;
+        padding: 0.618rem;
+        box-sizing: border-box;
+    }
+    
+    .comment-on .el-upload--picture-card {
+        width: 2.834rem;
+        height: 2.834rem;
+        border-radius: 0.309rem;
+        font-size: 0.515rem;
+        padding-top: 0.5rem;
+        line-height: 1;
+    }
 </style>

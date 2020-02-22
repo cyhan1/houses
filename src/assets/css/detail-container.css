@@ -1,0 +1,14 @@
+.container {
+    background: #FFF;
+    box-shadow: 0px 8px 12px 8px rgba(12, 102, 255, 0.02);
+    border-radius: 0.309rem;
+    transform: translateY(-0.824rem);
+    padding: 0.618rem;
+    font-size: 0.618rem;
+    font-family: PingFangSC-Regular, PingFang SC;
+    margin-bottom: 0.618rem;
+}
+
+.el-button {
+    width: 100%
+}

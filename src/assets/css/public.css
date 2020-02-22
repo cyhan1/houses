@@ -55,9 +55,17 @@
     align-items: center;
 }
 
+.box-align-end {
+    align-items: flex-end;
+}
+
 .box-start {
     justify-content: flex-start;
     align-items: center;
+}
+
+.box-align-start {
+    align-items: flex-start;
 }
 
 .text-center {
@@ -76,6 +84,25 @@
 
 .text-left {
     text-align: left;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.view-overflow {
+    overflow: hidden;
+}
+
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.view-nowrap {
+    white-space: nowrap;
 }
 
 

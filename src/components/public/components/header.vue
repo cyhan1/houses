@@ -1,5 +1,5 @@
 <template>
-     <section class="box1 box box-align-center box-between ">
+     <section class="box1 box box-align-center box-between text-center ">
             <div class="box2 box box-align-center">
                   <img src="@/assets/img/logo@2x.png" alt="logo">
                 <div class="text-left">
@@ -14,7 +14,9 @@
         </section>
 </template>
 <script>
-    export default {}
+    export default {
+
+    }
 </script>
 <style scoped>
     .box1 {
