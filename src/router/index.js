@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import HelloWorld from '@/components/index';
-// import NewHomeDetail from '@/components/page/new_home_detail';
+// import NewHomeDetail from '@/components/new_home_detail';
 Vue.use(Router)
 
 export default new Router({
@@ -59,6 +59,21 @@ export default new Router({
             path: '/house_type_detail', //户型详情
             name: 'house_type_detail',
             component: resolve => require(['@/components/page/house_type_detail'], resolve),
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: resolve => require(['@/components/page/login'], resolve)
+        },
+        {
+            path: '/signup',
+            name: 'signup',
+            component: resolve => require(['@/components/page/signup'], resolve)
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: resolve => require(['@/components/page/personal'], resolve)
         }
     ]
 })
