@@ -17,23 +17,23 @@
 
             <ValidationObserver v-slot="{ invalid }">
               <form @submit.prevent="onSubmit">
-                <ValidationProvider name="mobile" rules="required|number" v-slot="{ errors }">
+                <ValidationProvider name="手机号" rules="required|digits:11" v-slot="{ errors }">
                   <el-input v-model="mobile" type="text" placeholder="请输入手机号"></el-input>
                   <span>{{ errors[0] }}</span>
                 </ValidationProvider>
                 <div style="margin:10px 0;"></div>
-                <ValidationProvider name="password" rules="required|alphe" v-slot="{ errors }">
+                <ValidationProvider name="密码" rules="required|alpha_num|min:8" v-slot="{ errors }">
                   <el-input v-model="password" type="text" placeholder="请输入密码"></el-input>
                   <span>{{ errors[0] }}</span>
                 </ValidationProvider>
                 <div style="margin:10px 0;"></div>
-                <ValidationProvider name="smscode" rules="required|number" v-slot="{ errors }">
+                <ValidationProvider name="验证码" rules="required|digits:4" v-slot="{ errors }">
                   <el-input v-model="smscode" type="text" placeholder="请输入验证码" />
                   <span>{{ errors[0] }}</span>
                 </ValidationProvider>
 
                 <br />
-                <el-button type="primary" :disabled="invalid">注册</el-button>
+                <button type="primary" :disabled="invalid">注册</button>
               </form>
             </ValidationObserver>
 
@@ -50,12 +50,20 @@
 </template>
 
 <script>
-import { ValidationProvider, ValidationObserver, extend } from "vee-validate";
-import { required } from "vee-validate/dist/rules";
+import {
+  ValidationProvider,
+  ValidationObserver,
+  extend,
+  localize
+} from "vee-validate";
+import zh_CN from "vee-validate/dist/locale/zh_CN.json";
+import { required, digits, alpha_num, min } from "vee-validate/dist/rules";
 
-extend("required", {
-  ...required
-});
+localize("zh_CN", zh_CN);
+extend("required", {...required});
+extend("digits", { ...digits });
+extend("alpha_num", { ...alpha_num });
+extend("min", min);
 export default {
   components: {
     ValidationProvider,
@@ -64,11 +72,11 @@ export default {
   data: () => ({
     mobile: "",
     smscode: "",
-    passowrd: ""
+    password: ""
   }),
   methods: {
     onSubmit() {
-      alert(mobile, smscode);
+      console.log('submited');
     },
     handleCodeClick() {
       console.log("smscode");
@@ -108,11 +116,22 @@ export default {
   font-family: PingFangSC-Regular, PingFang SC;
   color: rgba(135, 135, 145, 1);
 }
-form .el-button {
+form button {
+  font-size: 16px;
   width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  border: unset;
+  background-color: #0C66FF;
+  color: white;
 }
-span {
+form button:disabled {
+  background-color: #A7C8FF;
+}
+form .el-input + span {
   display: block;
+  color: red;
+  font-size: 12px;
 }
 .notices {
   text-align: left;
