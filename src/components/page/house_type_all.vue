@@ -5,16 +5,9 @@
         <section class="container">
             <h-sign></h-sign>
             <div >
-                <h-type></h-type>
-                 <h-type></h-type>
-
-                  <h-type></h-type> 
-                  <h-type></h-type>
-                  <h-type></h-type>
-                 <h-type></h-type>
-
-                  <h-type></h-type> 
-                  <h-type></h-type>
+                <h-type v-for = '(items,inx) in type' :item='items' :key='inx'></h-type>
+                <h-type v-for = '(items,inx) in type' :item='items' :key='inx'></h-type>
+                 
             </div>
             <h-footer></h-footer>
         </section>
@@ -33,6 +26,87 @@
             'h-type': MyHomeTye,
             'h-footer': MyFooter
         },
+        data() {
+            return {
+                type: [{
+                    url: 'type.png',
+                    layout: '3室2厅2卫',
+                    area: '142',
+                    direction: '朝向西南',
+                    price: '3366',
+                    sign: [{
+                        name: '在售',
+                        statu: 2
+                    }, {
+                        name: '亲子乐园',
+                        statu: 0
+                    }, {
+                        name: '贴心物业',
+                        statu: 0
+                    }, {
+                        name: '地铁沿线',
+                        statu: 0
+                    }, ],
+                }, {
+                    url: 'type1.png',
+                    layout: '3室2厅2卫',
+                    area: '142',
+                    direction: '朝向西南',
+                    price: '3366',
+                    sign: [{
+                        name: '在售',
+                        statu: 2
+                    }, {
+                        name: '亲子乐园',
+                        statu: 0
+                    }, {
+                        name: '贴心物业',
+                        statu: 0
+                    }, {
+                        name: '地铁沿线',
+                        statu: 0
+                    }, ],
+                }, {
+                    url: 'type2.png',
+                    layout: '3室2厅2卫',
+                    area: '142',
+                    direction: '朝向西南',
+                    price: '3366',
+                    sign: [{
+                        name: '在售',
+                        statu: 2
+                    }, {
+                        name: '亲子乐园',
+                        statu: 0
+                    }, {
+                        name: '贴心物业',
+                        statu: 0
+                    }, {
+                        name: '地铁沿线',
+                        statu: 0
+                    }, ],
+                }, {
+                    url: 'type3.png',
+                    layout: '3室2厅2卫',
+                    area: '142',
+                    direction: '朝向西南',
+                    price: '3366',
+                    sign: [{
+                        name: '在售',
+                        statu: 2
+                    }, {
+                        name: '亲子乐园',
+                        statu: 0
+                    }, {
+                        name: '贴心物业',
+                        statu: 0
+                    }, {
+                        name: '地铁沿线',
+                        statu: 0
+                    }, ],
+                }]
+            }
+        }
     }
 </script>
 <style scoped>

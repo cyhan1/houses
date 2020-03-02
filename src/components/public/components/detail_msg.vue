@@ -120,7 +120,7 @@
             }
         },
         mounted() {
-            console.log(this)
+
         }
     }
 </script>
@@ -238,7 +238,7 @@
     }
     
     .el-progress {
-        width: 6rem;
+        width: 5.5rem;
         margin-left: 0.15rem;
     }
     

@@ -35,7 +35,7 @@
           <p>专属顾问</p>
         </div>
         <div class="box-flex">
-          <img src="@/assets/img/comput2@2x.png" alt />
+          <img src="@/assets/img/comput@2x.png" alt />
           <p>浏览记录</p>
         </div>
       </section>
@@ -78,92 +78,101 @@
 
 
 <script>
-export default {
-  methods: {
-    back() {
-      this.$router.go(-1);
-    }
-  }
-};
+    export default {
+        methods: {
+            back() {
+                this.$router.go(-1);
+            }
+        }
+    };
 </script>
 
 <style scoped>
-/* header */
-.header {
-  position: relative;
-  color: #fff;
-  width: 100%;
-  height: 9.533rem;
-  background-color: #e6f2ff;
-}
-
-.header > div {
-  padding: 0.58rem;
-  box-sizing: border-box;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.header .avator {
-  position: relative;
-  top: 30%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.header .avator .name {
-  display: flex;
-  text-align: left;
-  flex-direction: column;
-  margin-left: 20px;
-}
-.user {
-  font-size: 28px;
-  color: #2c2c3b;
-  font-weight: 500;
-}
-.profile {
-  font-size: 18px;
-  color: #9e9ea6;
-  font-weight: 400;
-}
-/* nav-btn */
-.nav-btn {
-  /* height: 3.865rem; */
-  border-radius: 0.309rem;
-  background: #fff;
-  box-shadow: 0px 8px 12px 8px rgba(12, 102, 255, 0.04);
-  transform: translateY(-0.824rem);
-  position: relative;
-  z-index: 2;
-  padding: 0.747rem 0.58rem;
-  box-sizing: border-box;
-}
-
-.nav-btn img {
-  display: block;
-  width: 1.2rem;
-  height: 1.237rem;
-  margin: 0 auto;
-}
-
-.nav-btn p {
-  color: #2c2c3b;
-  font-size: 0.515rem;
-  margin-top: 0.412rem;
-}
-/* container */
-.container {
-  padding: 0 0.578rem;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-size: 0.618rem;
-  color: #2c2c3b;
-}
-.el-col {
-  margin-bottom: 20px;
-}
-.el-col:last-child {
-  margin-bottom: 0;
-}
+    /* header */
+    
+    .header {
+        position: relative;
+        color: #fff;
+        width: 100%;
+        height: 9.533rem;
+        background-color: #e6f2ff;
+    }
+    
+    .header>div {
+        padding: 0.58rem;
+        box-sizing: border-box;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .header .avator {
+        position: relative;
+        top: 30%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    .header .avator .name {
+        display: flex;
+        text-align: left;
+        flex-direction: column;
+        margin-left: 20px;
+    }
+    
+    .user {
+        font-size: 28px;
+        color: #2c2c3b;
+        font-weight: 500;
+    }
+    
+    .profile {
+        font-size: 18px;
+        color: #9e9ea6;
+        font-weight: 400;
+    }
+    /* nav-btn */
+    
+    .nav-btn {
+        /* height: 3.865rem; */
+        border-radius: 0.309rem;
+        background: #fff;
+        box-shadow: 0px 8px 12px 8px rgba(12, 102, 255, 0.04);
+        transform: translateY(-0.824rem);
+        position: relative;
+        z-index: 2;
+        padding: 0.747rem 0.58rem;
+        box-sizing: border-box;
+    }
+    
+    .nav-btn img {
+        display: block;
+        width: 1.2rem;
+        height: 1.237rem;
+        margin: 0 auto;
+    }
+    
+    .nav-btn p {
+        color: #2c2c3b;
+        font-size: 0.515rem;
+        margin-top: 0.412rem;
+    }
+    /* container */
+    
+    .container {
+        padding: 0 0.578rem;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-size: 0.618rem;
+        color: #2c2c3b;
+    }
+    
+    .el-col {
+        margin-bottom: 20px;
+    }
+    
+    .el-col:last-child {
+        margin-bottom: 0;
+    }
 </style>

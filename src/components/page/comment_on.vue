@@ -1,7 +1,10 @@
 <template>
     <!--用户点评-->
-    <section class="comment-on view-overflow">
-        <h-header :title='"楼盘点评"'></h-header>
+    <el-container class="comment-on view-overflow is-vertical">
+        <el-header>
+            <h-header :title='"楼盘点评"'></h-header>
+        </el-header>
+        <el-main>
         <div>
             <p>您看过该盘吗？</p>
             <h-sign :pageType='2'></h-sign>   
@@ -56,9 +59,9 @@
             <p class="look-over">查看《用户点评行为规范》</p>
         <el-button type='primary'>提交</el-button></el-buttom> 
         </div>
-       
+       </el-main>
         <!--<router-link to=''>查看《用户点评行为规范》</router-link>-->
-    </section>
+    </el-container>
 </template>
 <script>
     import MyTitleHeader from '@/components/public/components/title_header';
@@ -91,20 +94,20 @@
 </script>
 <style scoped>
     @import url(../../assets/css/container.css);
-    section {
+    .comment-on {
         background: #F2F2F5;
         height: 100%;
         font-size: 0.618rem;
     }
     
-    section>div {
+    .el-main {
         padding: 0 0.58rem;
     }
     
     .container {
         background: #fff;
         padding: 0.824rem;
-        margin: 0 0.578rem;
+        /*margin: 0 0.578rem;*/
         border-radius: 0.309rem;
     }
     

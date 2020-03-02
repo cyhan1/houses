@@ -1,14 +1,14 @@
 <template>
     <section >
     <div class="box list-item">
-        <div class="img">
-            <img src="@/assets/img//baner.png" alt="">
+        <div class="img placeholder">
+            <img :src="itemlist.cover" alt="">
             <img src="@/assets/img/play@2x.png" alt="" class="play">
         </div>
         <div @click='go_to_detail(url)'>
             <div class="box box-between title">
-                <p>其仕和悦</p>
-                <p>16000元/m² <span>均</span></p>
+                <p>{{itemlist.title}}</p>
+                <p>{{itemlist.price}}元/m² <span>均</span></p>
             </div>
             <div class="text-left star">
                 <span>4.6</span>
@@ -18,23 +18,21 @@
                    <img src="@/assets/img/star.png" alt="">
                     <img src="@/assets/img/star.png" alt="">
             </div>
-            <p class="text-left">沈河区方家栏路/建面 102~142㎡</p>
+            <p class="text-left">{{itemlist.address}}/建面 {{itemlist.min}}~{{itemlist.max}}㎡</p>
             <div class="text-left house-sign">
-                <span class="span-red">必看好房</span>
-                <span class='span-blue'>在售</span>
-                <span>品牌房企</span>
-                <span>成熟商圈</span>
-                <span>双地铁</span>
+                
+                <span  v-for='(item,index) in itemlist.sign' :key='item.name' :class='{"span-red":item.statu==1,"span-blue":item.statu==2}'>{{item.name}}</span>
+               
             </div>
             
         </div>
         
     </div>
-    <footer class="footer box box-align-center">
-        <div class=" box box-align-center">
+    <footer class="footer box box-align-center" v-show='itemlist.lightspot'>
+        <div class=" box box-align-center ">
              <img src="@/assets/img/sign@2x.png" alt="">
         </div>
-       <span>楼盘亮点|楼盘亮点</span>
+       <span>楼盘亮点|{{itemlist.lightspot}}</span>
         
     </footer>
         </section>
@@ -46,7 +44,41 @@
                 type: String,
                 default: '/new_home_detail',
 
+            },
+            itemlist: {
+                type: Object,
+                default: function() {
+                    return {
+                        id: 1,
+                        title: '其仕和悦',
+                        banner: [],
+                        cover: 'http://seeker.haetek.com/houseonline/images/271581231610pic_hd10.png',
+                        detailimg: [],
+                        price: '16000',
+                        score: 4.6,
+                        address: '沈河区方家栏路',
+                        min: 102,
+                        max: 142,
+                        sign: [{
+                            name: '必看好房',
+                            statu: 1
+                        }, {
+                            name: '在售',
+                            statu: 2
+                        }, {
+                            name: '品牌房房企',
+                            statu: 0
+                        }, {
+                            name: '成熟商圈',
+                            statu: 0
+                        }, ],
+                        lightspot: "低密度住宅底商"
+                    }
+                }
             }
+        },
+        mounted() {
+            // console.log(this.itemlist)
         },
         methods: {
             go_to_detail(_url) {

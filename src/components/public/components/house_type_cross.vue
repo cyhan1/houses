@@ -1,6 +1,6 @@
 <template>
     <div class="house-type box box-align-center" @click='go_to_detail'>
-        <img src="@/assets/img/house-type.jpeg" alt="">
+        <img :src="imgPath+item.url" alt="">
         <div>
              <div class="box box-start" style='margin: 0.309rem 0 0 0'>
                 <div>3室2厅2卫</div>
@@ -27,7 +27,44 @@
     
 </template>
 <script>
+    import {
+        mapActions,
+        mapGetters
+    } from 'vuex';
     export default {
+        computed: {
+            ...mapGetters(['imgPath']),
+        },
+        props: {
+            item: {
+                type: Object,
+                default: function() {
+                    return {
+                        url: 'type3.png',
+                        layout: '3室2厅2卫',
+                        area: '142',
+                        direction: '朝向西南',
+                        price: '3366',
+                        sign: [{
+                            name: '必看好房',
+                            statu: 1
+                        }, {
+                            name: '在售',
+                            statu: 2
+                        }, {
+                            name: '亲子乐园',
+                            statu: 0
+                        }, {
+                            name: '贴心物业',
+                            statu: 0
+                        }, {
+                            name: '地铁沿线',
+                            statu: 0
+                        }, ],
+                    }
+                }
+            }
+        },
         methods: {
             go_to_detail() {
                 this.$router.push("/house_type_detail")

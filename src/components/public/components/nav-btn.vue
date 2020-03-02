@@ -20,7 +20,18 @@
     </section>
 </template>
 <script>
-    export default {}
+    import {
+        mapActions,
+        mapGetters
+    } from 'vuex';
+    export default {
+        computed: {
+            ...mapGetters(['imgPath'])
+        },
+        mounted() {
+            console.log(this.imgPath)
+        }
+    }
 </script>
 <style scoped>
     .nav-btn {

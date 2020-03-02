@@ -1,0 +1,20 @@
+;
+import Vue from 'vue';
+import Vuex from 'vuex';
+import * as getters from './getters';
+import * as actions from './actions';
+import * as mutations from './mutations';
+
+Vue.use(Vuex)
+const state = JSON.parse(sessionStorage.getItem('vuex')) || {
+    imgPath: 'http://seeker.haetek.com/houseonline/images/'
+}
+
+const store = new Vuex.Store({
+    state,
+    getters,
+    actions,
+    mutations
+})
+
+export default store;

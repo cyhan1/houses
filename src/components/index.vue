@@ -14,7 +14,8 @@
     <section class="container">
     <h-navbtn></h-navbtn>
     <section class="house-class box">
-        <div @click='go_to_new'>
+        <div @click='go_to_new' class="placeholder">
+            
             <img src="@/assets/img/find_new_home@2x.png" alt="">
             <div class="tst text-left">
                 <p>找新房</p>
@@ -22,14 +23,14 @@
             </div>
         </div>
         <div>
-            <div  @click='go_to_second'>
+            <div  @click='go_to_second' class="placeholder">
                 <img src="@/assets/img/second-hand_house@2x.png" alt="">
                  <div class="tst text-left">
                     <p>二手房</p>
                     <p>真实房源，权威认证</p>
                 </div>
             </div>
-            <div  @click='go_to_rent'>
+            <div  @click='go_to_rent' class="placeholder">
                 <img src="@/assets/img/renting@2x.png" alt="">
                  <div class="tst text-left">
                     <p>租房</p>
@@ -39,7 +40,7 @@
             
         </div>
     </section>
-    <section class="live-to-see">
+    <section class="live-to-see placeholder">
         <img src="@/assets/img/Live_to_see@2x.png" alt="">
           <div class="tst text-left">
                 <p>直播看房</p>
@@ -48,11 +49,18 @@
     </section>
      <el-tabs v-model="activeName" @tab-click="handleClick">
     <el-tab-pane label="好评榜" name="first">
-           <h-list v-for='item in 4' :key="item"></h-list>
+        <h-list  :itemlist='item' v-for='(item,index) in listData' :key="index"></h-list>
+           
         </el-tab-pane>
-    <el-tab-pane label="新房" name="second">新房</el-tab-pane>
-    <el-tab-pane label="二手房" name="third">二手房</el-tab-pane>
-    <el-tab-pane label="商业地产" name="fourth">商业地产</el-tab-pane>
+    <el-tab-pane label="新房" name="second">
+         <h-list  :itemlist='item' v-for='(item,index) in listData' :key="index"></h-list>
+        </el-tab-pane>
+    <el-tab-pane label="二手房" name="third">
+         <h-list  :itemlist='item' v-for='(item,index) in listData' :key="index"></h-list>
+        </el-tab-pane>
+    <el-tab-pane label="商业地产" name="fourth">
+         <h-list  :itemlist='item' v-for='(item,index) in listData' :key="index"></h-list>
+    </el-tab-pane>
     
   </el-tabs>
     </section>
@@ -77,9 +85,185 @@
             'h-list': MyListItem,
             'h-navbtn': MyNavBtn
         },
+        // http://seeker.haetek.com/houseonline/images/271581231610pic_hd.png
         data() {
             return {
-                activeName: 'first'
+                activeName: 'first',
+                listData: [{
+                    id: 1,
+                    title: '其仕和悦',
+                    banner: [],
+                    cover: 'http://seeker.haetek.com/houseonline/images/271581231610pic_hd10.png',
+                    detailimg: [],
+                    price: '13000',
+                    score: 4.6,
+                    address: '沈河区方家栏路',
+                    min: 102,
+                    max: 142,
+                    sign: [{
+                        name: '必看好房',
+                        statu: 1
+                    }, {
+                        name: '在售',
+                        statu: 2
+                    }, {
+                        name: '品牌房房企',
+                        statu: 0
+                    }, {
+                        name: '成熟商圈',
+                        statu: 0
+                    }, ],
+                    lightspot: "低密度住宅底商"
+
+
+                }, {
+                    id: 3,
+                    title: '其仕和悦',
+                    banner: [],
+                    cover: 'http://seeker.haetek.com/houseonline/images/271581231610pic_hd11.png',
+                    detailimg: [],
+                    price: '16000',
+                    score: 4.6,
+                    address: '沈河区方家栏路',
+                    min: 102,
+                    max: 152,
+                    sign: [{
+                        name: '必看好房',
+                        statu: 1
+                    }, {
+                        name: '在售',
+                        statu: 2
+                    }, {
+                        name: '亲子乐园',
+                        statu: 0
+                    }, {
+                        name: '贴心物业',
+                        statu: 0
+                    }, {
+                        name: '地铁沿线',
+                        statu: 0
+                    }, ],
+                    lightspot: ""
+
+
+                }, {
+                    id: 2,
+                    title: '其仕和悦',
+                    banner: [],
+                    detailimg: [],
+                    cover: 'http://seeker.haetek.com/houseonline/images/271581231610pic_hd10.png',
+                    price: '14500',
+                    score: 4.6,
+                    address: '沈河区方家栏路',
+                    min: 102,
+                    max: 112,
+                    sign: [{
+                        name: '必看好房',
+                        statu: 1
+                    }, {
+                        name: '在售',
+                        statu: 2
+                    }, {
+                        name: '贴心物业',
+                        statu: 0
+                    }, {
+                        name: '亲子乐园',
+                        statu: 0
+                    }, {
+                        name: '公交直达',
+                        statu: 0
+                    }, ],
+                    lightspot: "低密度住宅底商"
+
+
+                }, {
+                    id: 4,
+                    title: '其仕和悦',
+                    banner: [],
+                    detailimg: [],
+                    cover: 'http://seeker.haetek.com/houseonline/images/271581231610pic_hd11.png',
+                    price: '15100',
+                    score: 4.6,
+                    address: '沈河区方家栏路',
+                    min: 102,
+                    max: 142,
+                    sign: [{
+                        name: '必看好房',
+                        statu: 1
+                    }, {
+                        name: '在售',
+                        statu: 2
+                    }, {
+                        name: '亲子乐园',
+                        statu: 0
+                    }, {
+                        name: '贴心物业',
+                        statu: 0
+                    }, {
+                        name: '地铁沿线',
+                        statu: 0
+                    }, ],
+                    lightspot: "品牌物业 尊享精品别墅"
+
+
+                }, {
+                    id: 5,
+                    title: '其仕和悦',
+                    banner: [],
+                    detailimg: [],
+                    cover: 'http://seeker.haetek.com/houseonline/images/271581231610pic_hd8.png',
+                    price: '12400',
+                    score: 4.6,
+                    address: '沈河区方家栏路',
+                    min: 102,
+                    max: 142,
+                    sign: [{
+                        name: '必看好房',
+                        statu: 1
+                    }, {
+                        name: '在售',
+                        statu: 2
+                    }, {
+                        name: '品牌房房企',
+                        statu: 0
+                    }, {
+                        name: '成熟商圈',
+                        statu: 0
+                    }, ],
+                    lightspot: "低密度住宅底商"
+
+
+                }, {
+                    id: 6,
+                    title: '其仕和悦',
+                    banner: [],
+                    cover: 'http://seeker.haetek.com/houseonline/images/271581231610pic_hd11.png',
+                    detailimg: [],
+                    price: '16000',
+                    score: 4.6,
+                    address: '沈河区方家栏路',
+                    min: 102,
+                    max: 142,
+                    sign: [{
+                        name: '必看好房',
+                        statu: 1
+                    }, {
+                        name: '在售',
+                        statu: 2
+                    }, {
+                        name: '亲子乐园',
+                        statu: 0
+                    }, {
+                        name: '贴心物业',
+                        statu: 0
+                    }, {
+                        name: '地铁沿线',
+                        statu: 0
+                    }, ],
+                    lightspot: ""
+
+
+                }, ]
             }
         },
         methods: {
@@ -162,22 +346,21 @@
         height: 100%;
     }
     
-    .house-class>div:first-child {
-        margin-right: 0.41rem;
-    }
-    
-    .house-class img {
-        display: block;
-    }
-    
-    .house-class img {
+    .house-class>div {
         width: 7.832rem;
         height: 3.658rem;
     }
     
-    .house-class>div:first-child img {
+    .house-class>div:first-child {
+        margin-right: 0.41rem;
         width: 6.596rem;
         height: 7.729rem;
+    }
+    
+    .house-class img {
+        width: 100%;
+        height: 100%;
+        display: block;
     }
     
     .house-class>div:last-child div:first-child {

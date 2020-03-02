@@ -7,8 +7,8 @@
              <p style='color:#2C2C3B;margin: 0.618rem 0;'><span style='color: #878791 '>地址：</span>沈河区方家栏路（方家栏公园旁）</p>
 
              <h-sign></h-sign>
-             <div class="map" >
-                 这里放地图
+             <div class="map" id='map' >
+                 
              </div>
              <div>
                  <p style="color:#2C2C3B;font-size:0.515rem;margin:0.438rem 0">上步工业区 
@@ -33,7 +33,15 @@
         components: {
             'h-title': MyOptionTitle,
             'h-sign': MySignNav
-        }
+        },
+        mounted() {
+            var map = new BMap.Map("map");
+            // 创建地图实例  
+            var point = new BMap.Point(116.404, 39.915);
+            // 创建点坐标  
+            map.centerAndZoom(point, 15);
+
+        },
     }
 </script>
 <style scoped>
@@ -42,6 +50,5 @@
         width: 100%;
         height: 6.99rem;
         margin: 0.618rem 0;
-        border: 1px solid red;
     }
 </style>

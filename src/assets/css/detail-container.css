@@ -1,4 +1,6 @@
 .container {
+    position: relative;
+    z-index: 5;
     background: #FFF;
     box-shadow: 0px 8px 12px 8px rgba(12, 102, 255, 0.02);
     border-radius: 0.309rem;
