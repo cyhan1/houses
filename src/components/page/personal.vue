@@ -16,57 +16,59 @@
         </el-avatar>
         <div class="name">
           <span class="user">用户昵称</span>
-          <span class="profile">查看并编辑个人资料</span>
+          <span class="profile" @click="editePersonal">查看并编辑个人资料</span>
         </div>
       </div>
     </div>
     <div class="container">
       <section class="nav-btn box box-align-center text-center">
-        <div class="box-flex">
+        <div class="box-flex" @click="personalData">
           <img src="@/assets/img/subscrib@2x.png" alt />
           <p>我的关注</p>
         </div>
-        <div class="box-flex">
+        <div class="box-flex" @click="personalData">
           <img src="@/assets/img/history@2x.png" alt />
           <p>浏览记录</p>
         </div>
-        <div class="box-flex">
+        <div class="box-flex" @click="personalData">
           <img src="@/assets/img/vipsupport@2x.png" alt />
           <p>专属顾问</p>
         </div>
-        <div class="box-flex">
-          <img src="@/assets/img/comput@2x.png" alt />
+
+        <div class="box-flex" @click="personalData">
+          <img src="@/assets/img/comput2@2x.png" alt />
+
           <p>浏览记录</p>
         </div>
       </section>
       <div style="margin:20px 0;"></div>
       <el-row class="nav-btn text-center">
         <el-col :span="6">
-          <div class>
+          <div @click="personalService">
             <img src="@/assets/img/comment@2x.png" alt />
             <p>我的点评</p>
           </div>
         </el-col>
         <el-col :span="6">
-          <div class>
+          <div @click="personalService">
             <img src="@/assets/img/ask@2x.png" alt />
             <p>楼盘问答</p>
           </div>
         </el-col>
         <el-col :span="6">
-          <div class>
+          <div @click="personalService">
             <img src="@/assets/img/ask2@2x.png" alt />
             <p>小区问答</p>
           </div>
         </el-col>
         <el-col :span="6">
-          <div class>
+          <div @click="personalService">
             <img src="@/assets/img/answer@2x.png" alt />
             <p>问卷调查</p>
           </div>
         </el-col>
         <el-col :span="6">
-          <div class>
+          <div @click="personalService">
             <img src="@/assets/img/answer2@2x.png" alt />
             <p>官方在线客服</p>
           </div>
@@ -82,6 +84,15 @@
         methods: {
             back() {
                 this.$router.go(-1);
+            },
+            editePersonal() {
+                this.$message('此功能暂未开放〜');
+            },
+            personalData() {
+                this.$message('此功能暂未开放〜');
+            },
+            personalService() {
+                this.$message('此功能暂未开放〜');
             }
         }
     };

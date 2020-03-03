@@ -17,19 +17,18 @@
 
             <ValidationObserver v-slot="{ invalid }">
               <form @submit.prevent="onSubmit">
-                <ValidationProvider name="mobile" rules="required|number" v-slot="{ errors }">
-                  <el-input v-model="mobile" type="text" placeholder="请输入手机号">
-                  </el-input>
+                <ValidationProvider name="手机号" rules="required|digits:11" v-slot="{ errors }">
+                  <el-input v-model="mobile" type="text" placeholder="请输入手机号"></el-input>
                   <span>{{ errors[0] }}</span>
                 </ValidationProvider>
                 <div style="margin:10px 0;"></div>
-                <ValidationProvider name="smscode" rules="required|number" v-slot="{ errors }">
+                <ValidationProvider name="验证码" rules="required|digits:4" v-slot="{ errors }">
                   <el-input v-model="smscode" type="text" placeholder="请输入验证码" />
                   <span>{{ errors[0] }}</span>
                 </ValidationProvider>
 
                 <br />
-                <el-button type="primary" :disabled="invalid">登录</el-button>
+                <button type="submit" :disabled="invalid">登录</button>
               </form>
             </ValidationObserver>
 
@@ -44,12 +43,16 @@
             <el-divider>其他登录方式</el-divider>
             <div style="height:20px;"></div>
             <div class="form-icon">
-                <div class="icon">
-                    <img  src="@/assets/img/login_signup_personal/wechat-icon.png" width="30" height="25" />
-                </div>
-                <div class="icon">
-                    <img  src="@/assets/img/login_signup_personal/wechat-icon.png" width="30" height="25" />
-                </div>
+              <div class="icon" @click="otherLogin">
+                <img
+                  src="@/assets/img/login_signup_personal/wechat-icon.png"
+                  width="30"
+                  height="25"
+                />
+              </div>
+              <div class="icon" @click="otherLogin">
+                <img src="@/assets/img/login_signup_personal/qq-icon@2x.png" width="26" height="28" />
+              </div>
             </div>
           </div>
         </div>
@@ -62,14 +65,19 @@
     import {
         ValidationProvider,
         ValidationObserver,
-        extend
+        extend,
+        localize
     } from "vee-validate";
+    import zh_CN from "vee-validate/dist/locale/zh_CN.json";
     import {
+        digits,
         required
     } from "vee-validate/dist/rules";
 
-    extend("required", {
-        ...required
+    localize("zh-CN", zh_CN);
+    extend("digits", {...digits
+    });
+    extend("required", {...required
     });
     export default {
         components: {
@@ -82,16 +90,19 @@
         }),
         methods: {
             onSubmit() {
-                alert(mobile, smscode);
+                console.log('submited');
             },
             handleCodeClick() {
                 console.log("smscode");
+            },
+            otherLogin() {
+                this.$message("此功能暂未开放〜");
             }
         }
     };
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
     .header {
         display: flex;
         justify-content: space-between;
@@ -128,12 +139,24 @@
         color: rgba(135, 135, 145, 1);
     }
     
-    form .el-button {
+    form button {
+        font-size: 16px;
         width: 100%;
+        padding: 12px;
+        border-radius: 4px;
+        border: unset;
+        background-color: #0C66FF;
+        color: white;
     }
     
-    span {
+    form button:disabled {
+        background-color: #A7C8FF;
+    }
+    
+    form .el-input+span {
         display: block;
+        font-size: 12px;
+        color: red;
     }
     
     .notices {
